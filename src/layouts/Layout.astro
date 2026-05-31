@@ -7,9 +7,10 @@ interface Props {
   description: string;
   canonical: string;
   keywords?: string;
+  primaryKeyword?: string;
   schemaJson?: object | object[];
 }
-const { title, description, canonical, keywords, schemaJson } = Astro.props;
+const { title, description, canonical, keywords, primaryKeyword, schemaJson } = Astro.props;
 const path = Astro.url.pathname;
 
 const orgSchema = {
@@ -34,6 +35,7 @@ const orgSchema = {
     <title>{title}</title>
     <meta name="description" content={description} />
     {keywords && <meta name="keywords" content={keywords} />}
+    {primaryKeyword && <meta name="primary-keyword" content={primaryKeyword} />}
     <link rel="canonical" href={canonical} />
     <meta name="robots" content="index, follow" />
     <meta property="og:type" content="website" />

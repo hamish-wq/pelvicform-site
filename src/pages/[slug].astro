@@ -21,7 +21,7 @@ const schemaJson = [
   ]},
 ];
 ---
-<Layout title={s.metaTitle} description={s.metaDescription} canonical={canonical} keywords={s.keywords} schemaJson={schemaJson}>
+<Layout title={s.metaTitle} description={s.metaDescription} canonical={canonical} keywords={s.keywords} primaryKeyword={s.primaryKeyword} schemaJson={schemaJson}>
   <section class="relative overflow-hidden bg-pf-navy">
     <div class="absolute inset-0">
       <img src={s.heroImage} alt={`${s.label} at PelvicForm Ponsonby`} class="w-full h-full object-cover opacity-30" style="object-position:center;" />
@@ -69,7 +69,7 @@ const schemaJson = [
     <div class="max-w-6xl mx-auto px-4">
       <div class="text-center mb-12 max-w-2xl mx-auto">
         <p class="text-pf-orange text-sm font-extrabold uppercase tracking-widest mb-2">{s.conditionsHeading}</p>
-        <h2 class="text-3xl md:text-4xl">Expert, tailored care</h2>
+        <h2 class="text-3xl md:text-4xl">{s.label}: expert, tailored care</h2>
       </div>
       <div class="grid md:grid-cols-2 gap-5">
         {s.conditions.map((c) => (

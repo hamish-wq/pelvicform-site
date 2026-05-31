@@ -7,7 +7,7 @@ import { SITE } from '../lib/site';
 import { PF_SERVICES, IMAGES } from '../lib/services-data';
 
 const title = 'Pelvic Floor Physio Auckland | PelvicForm Ponsonby';
-const description = 'Specialist pelvic floor physiotherapy in Ponsonby, Auckland, for men and women. Discreet care for incontinence, prostate recovery, pelvic pain, plus Clinical Pilates and PelviPower. No referral needed. Book your assessment.';
+const description = 'Specialist pelvic floor physiotherapy in Ponsonby for men and women. Discreet care for incontinence, prostate recovery and pelvic pain. No referral needed.';
 const canonical = `${SITE.domain}/`;
 const keywords = 'pelvic floor physio auckland, pelvic health ponsonby, incontinence treatment, prolapse physio, prostate recovery, pelvipower, clinical pilates, mens pelvic health, womens pelvic health';
 
@@ -26,7 +26,7 @@ const faqs = [
 ];
 const schemaJson = { '@context': 'https://schema.org', '@type': 'FAQPage', mainEntity: faqs.map((f) => ({ '@type': 'Question', name: f.q, acceptedAnswer: { '@type': 'Answer', text: f.a } })) };
 ---
-<Layout title={title} description={description} canonical={canonical} keywords={keywords} schemaJson={schemaJson}>
+<Layout title={title} description={description} canonical={canonical} keywords={keywords} primaryKeyword="pelvic floor physio" schemaJson={schemaJson}>
   <!-- HERO -->
   <section class="relative overflow-hidden bg-pf-navy">
     <div class="absolute inset-0">
@@ -62,7 +62,7 @@ const schemaJson = { '@context': 'https://schema.org', '@type': 'FAQPage', mainE
   <!-- THE TWO PATHWAYS -->
   <section class="bg-pf-navy py-16 md:py-24">
     <div class="max-w-6xl mx-auto px-4">
-      <div class="text-center mb-12"><p class="text-pf-orange text-sm font-extrabold uppercase tracking-widest mb-2">The pathways</p><h2 class="text-3xl md:text-4xl text-white">Where would you like to start?</h2></div>
+      <div class="text-center mb-12"><p class="text-pf-orange text-sm font-extrabold uppercase tracking-widest mb-2">The pathways</p><h2 class="text-3xl md:text-4xl text-white">Pelvic floor physio for men and women</h2></div>
       <div class="grid md:grid-cols-2 gap-6">
         <a href="/womens-pelvic-health" class="group bg-white rounded-3xl overflow-hidden hover:ring-2 hover:ring-pf-orange transition-all">
           <div class="aspect-[16/9] overflow-hidden"><img src={IMAGES.womens} alt="Women's pelvic health physiotherapy" class="w-full h-full object-cover group-hover:scale-105 transition-transform" /></div>

@@ -8,6 +8,8 @@
   "scripts": {
     "dev": "astro dev",
     "build": "astro build",
+    "audit": "node audit.mjs",
+    "build:gated": "astro build && node audit.mjs",
     "preview": "astro preview",
     "astro": "astro"
   },

@@ -17,6 +17,7 @@ export const IMAGES = {
 export interface PFService {
   slug: string;
   label: string;
+  primaryKeyword: string;
   metaTitle: string;
   metaDescription: string;
   keywords: string;
@@ -34,8 +35,9 @@ export const PF_SERVICES: Record<string, PFService> = {
   'womens-pelvic-health': {
     slug: 'womens-pelvic-health',
     label: "Women's Pelvic Health",
-    metaTitle: "Women's Pelvic Health Physio Auckland | PelvicForm Ponsonby",
-    metaDescription: "Expert women's pelvic floor physiotherapy in Ponsonby, Auckland. Discreet care for incontinence, prolapse, endometriosis, pregnancy and postpartum recovery. We lodge ACC maternal birth injury claims. Book your assessment.",
+    primaryKeyword: "women's pelvic health",
+    metaTitle: "Women's Pelvic Health Physio Auckland | PelvicForm",
+    metaDescription: "Expert women's pelvic floor physiotherapy in Ponsonby. Discreet care for incontinence, prolapse, endometriosis, pregnancy and postpartum recovery.",
     keywords: 'womens pelvic health auckland, pelvic floor physio women, incontinence physio, prolapse treatment, endometriosis physio, postpartum recovery ponsonby, ACC birth injury',
     eyebrow: "Women's Pelvic Health",
     h1: 'Get your body working with you, not against you',
@@ -59,8 +61,9 @@ export const PF_SERVICES: Record<string, PFService> = {
   'mens-pelvic-health': {
     slug: 'mens-pelvic-health',
     label: "Men's Pelvic Health",
-    metaTitle: "Men's Pelvic Health Physio Auckland | Prostate Recovery | PelvicForm",
-    metaDescription: "Men's pelvic floor physiotherapy in Ponsonby, Auckland. Structured pre- and post-prostate-surgery treatment for bladder control, pelvic pain and erectile function. Discreet, expert care. Book your assessment.",
+    primaryKeyword: "men's pelvic health",
+    metaTitle: "Men's Pelvic Health Physio Auckland | PelvicForm",
+    metaDescription: "Men's pelvic floor physiotherapy in Ponsonby. Structured pre- and post-prostate-surgery care for bladder control, pelvic pain and erectile function.",
     keywords: 'mens pelvic health auckland, prostate surgery recovery physio, male incontinence, post prostatectomy rehab, mens pelvic floor, erectile function physio ponsonby',
     eyebrow: "Men's Pelvic Health",
     h1: 'Practical, structured recovery, before and after prostate treatment',
@@ -82,8 +85,9 @@ export const PF_SERVICES: Record<string, PFService> = {
   'pelvipower-therapy': {
     slug: 'pelvipower-therapy',
     label: 'PelviPower Therapy',
-    metaTitle: 'PelviPower Chair Therapy Auckland | Non-Invasive Pelvic Floor | PelvicForm',
-    metaDescription: 'PelviPower magnetic-stimulation therapy in Ponsonby, Auckland. Build pelvic floor strength and coordination while you sit fully clothed. Non-invasive, no surgery. Initial assessment $399. Book a trial.',
+    primaryKeyword: 'pelvipower',
+    metaTitle: 'PelviPower Chair Therapy Auckland | PelvicForm',
+    metaDescription: 'PelviPower magnetic-stimulation therapy in Ponsonby. Build pelvic floor strength while you sit fully clothed. Non-invasive, no surgery. Initial assessment $399.',
     keywords: 'pelvipower auckland, magnetic stimulation pelvic floor, non invasive incontinence treatment, pelvic floor chair, EMS pelvic floor ponsonby',
     eyebrow: 'PelviPower Therapy',
     h1: 'Rebuild pelvic floor strength, sitting fully clothed',
@@ -115,7 +119,8 @@ export const PF_SERVICES: Record<string, PFService> = {
   'clinical-pilates': {
     slug: 'clinical-pilates',
     label: 'Clinical Pilates',
-    metaTitle: 'Clinical Pilates Auckland | Pelvic Floor & Core | PelvicForm Ponsonby',
+    primaryKeyword: 'clinical pilates',
+    metaTitle: 'Clinical Pilates Auckland | Pelvic Floor & Core | PelvicForm',
     metaDescription: 'Clinical Pilates in our onsite Ponsonby studio. Rebuild your core and pelvic floor safely as part of your pelvic-health recovery. Book a session.',
     keywords: 'clinical pilates auckland, pelvic floor pilates, rehab pilates ponsonby, core rebuild physio pilates',
     eyebrow: 'Clinical Pilates',
