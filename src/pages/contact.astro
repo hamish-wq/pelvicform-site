@@ -3,18 +3,18 @@ import Layout from '../layouts/Layout.astro';
 import Wave from '../components/Wave.astro';
 import ContactForm from '../components/ContactForm.astro';
 import { SITE } from '../lib/site';
-const title = 'Contact PelvicForm | Pelvic Health Physio, Ponsonby';
-const description = 'Contact PelvicForm, pelvic health physiotherapy in Ponsonby. Call 09 886 4611, book online, or send a confidential message. 179A Ponsonby Road.';
+const title = 'Contact PelvicForm | Pelvic Floor Physio, Ponsonby Auckland';
+const description = 'Contact PelvicForm, pelvic floor physiotherapy in Ponsonby. Call 09 886 4611, book your assessment online, or send a discreet message. 179A Ponsonby Road, Auckland.';
 const canonical = `${SITE.domain}/contact`;
 ---
 <Layout title={title} description={description} canonical={canonical}>
-  <section class="bg-pf-ink py-16 md:py-20 text-center">
+  <section class="bg-pf-navy py-16 md:py-20 text-center">
     <div class="max-w-3xl mx-auto px-4">
-      <p class="text-pf-coral text-sm font-extrabold uppercase tracking-widest mb-4">Contact</p>
-      <h1 class="text-4xl md:text-5xl font-black text-white mb-5">Get in touch, confidentially</h1>
-      <p class="text-lg text-white/85">Call 09 886 4611, book online, or send a message. 179A Ponsonby Road, Auckland.</p>
+      <p class="text-pf-orange text-sm font-extrabold uppercase tracking-widest mb-4">Contact</p>
+      <h1 class="text-4xl md:text-5xl font-extrabold text-white mb-5">Get in touch, discreetly</h1>
+      <p class="text-lg text-blue-100">Call 09 886 4611, book online, or send a message. 179A Ponsonby Road, Auckland.</p>
     </div>
   </section>
-  <Wave from="#1C2B29" to="#FFFFFF" />
+  <Wave from="#004A80" to="#FFFFFF" />
   <ContactForm sourcePage="contact" eyebrow="Send a message" heading="How can we help?" subhead="Tell us what's going on, or just ask a question. Discreet, and we reply within one business day." />
 </Layout>

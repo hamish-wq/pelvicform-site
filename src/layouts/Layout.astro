@@ -18,10 +18,11 @@ const orgSchema = {
   '@id': `${SITE.domain}/#org`,
   name: 'PelvicForm',
   url: SITE.domain,
+  logo: SITE.logo,
   telephone: '+64-9-886-4611',
   address: { '@type': 'PostalAddress', streetAddress: '179A Ponsonby Road', addressLocality: 'Ponsonby', addressRegion: 'Auckland', postalCode: '1011', addressCountry: 'NZ' },
   medicalSpecialty: 'Physiotherapy',
-  description: 'Pelvic health physiotherapy in Ponsonby, Auckland, for women, men and children. Part of Return To Form.',
+  description: 'Specialist pelvic floor physiotherapy in Ponsonby, Auckland, for men and women. Discreet treatment for incontinence, prostate recovery, pelvic pain, Clinical Pilates and PelviPower. Part of Return To Form.',
 };
 ---
 <!doctype html>
@@ -39,56 +40,57 @@ const orgSchema = {
     <meta property="og:title" content={title} />
     <meta property="og:description" content={description} />
     <meta property="og:url" content={canonical} />
+    <meta property="og:image" content={SITE.logo} />
     <meta property="og:site_name" content="PelvicForm" />
+    <link rel="icon" type="image/png" href="https://assets.cdn.filesafe.space/AiNs33SgZZAvOuPlmM6x/media/69c0895889294eaa5a5ed686.png" />
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Nunito+Sans:wght@400;600;700;800;900&display=swap" />
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Montserrat:wght@600;700;800&family=Open+Sans:wght@400;500;600;700&display=swap" />
     <script type="application/ld+json" set:html={JSON.stringify(orgSchema)} />
     {schemaJson && <script type="application/ld+json" set:html={JSON.stringify(schemaJson)} />}
   </head>
   <body class="bg-white antialiased">
     <header class="bg-white/95 backdrop-blur border-b border-slate-100 sticky top-0 z-50">
       <div class="max-w-6xl mx-auto px-4 py-3 flex items-center justify-between gap-4">
-        <a href="/" class="flex items-center gap-2 shrink-0" aria-label="PelvicForm home">
-          <span class="w-8 h-8 rounded-full bg-pf-teal text-white flex items-center justify-center font-black">P</span>
-          <span class="font-black text-lg text-pf-ink tracking-tight">PelvicForm</span>
+        <a href="/" class="flex items-center shrink-0" aria-label="PelvicForm home">
+          <img src={SITE.logo} alt="PelvicForm" class="h-9 md:h-10 w-auto" />
         </a>
         <nav class="hidden lg:flex items-center gap-6 text-sm font-bold">
           {NAV.map((item) => (
-            <a href={item.href} class:list={['transition-colors', isActive(path, item.href) ? 'text-pf-teal' : 'text-pf-ink hover:text-pf-teal']}>{item.label}</a>
+            <a href={item.href} class:list={['transition-colors', isActive(path, item.href) ? 'text-pf-orange' : 'text-pf-ink hover:text-pf-orange']}>{item.label}</a>
           ))}
         </nav>
-        <a href={SITE.bookUrl} class="btn-primary !py-2.5 !px-5 text-sm shrink-0">Book now</a>
+        <a href={SITE.bookUrl} class="btn-accent !py-2.5 !px-5 text-sm shrink-0">Book your assessment</a>
       </div>
     </header>
     <main><slot /></main>
-    <footer class="bg-pf-ink text-slate-300 mt-24">
+    <footer class="bg-pf-navy text-blue-100 mt-24">
       <div class="max-w-6xl mx-auto px-4 py-12 grid md:grid-cols-3 gap-8 text-sm">
         <div>
-          <p class="font-black text-white text-lg mb-3">PelvicForm</p>
-          <p class="leading-relaxed text-slate-400">Pelvic health physiotherapy in Ponsonby, for women, men and children. Part of Return To Form.</p>
-          <p class="mt-3"><a href="tel:+6498864611" class="hover:text-pf-coral font-semibold">09 886 4611</a></p>
+          <img src={SITE.logo} alt="PelvicForm" class="h-9 w-auto mb-4 brightness-0 invert" />
+          <p class="leading-relaxed text-blue-200">Specialist pelvic floor physiotherapy in Ponsonby, for men and women. Discreet, expert care. Part of Return To Form.</p>
+          <p class="mt-3"><a href="tel:+6498864611" class="hover:text-pf-orange font-semibold">09 886 4611</a></p>
         </div>
         <div>
           <p class="font-bold text-white mb-3 uppercase tracking-wide text-xs">Pelvic health</p>
           <ul class="space-y-2">
-            <li><a href="/womens-pelvic-health" class="hover:text-pf-coral">Women's Health</a></li>
-            <li><a href="/mens-pelvic-health" class="hover:text-pf-coral">Men's Health</a></li>
-            <li><a href="/pregnancy-postnatal" class="hover:text-pf-coral">Pregnancy & Postnatal</a></li>
-            <li><a href="/post-surgical-rehab" class="hover:text-pf-coral">Post-Surgical Rehab</a></li>
-            <li><a href="/pelvic-pain" class="hover:text-pf-coral">Pelvic Pain</a></li>
+            <li><a href="/womens-pelvic-health" class="hover:text-pf-orange">Women's Pelvic Health</a></li>
+            <li><a href="/mens-pelvic-health" class="hover:text-pf-orange">Men's Pelvic Health</a></li>
+            <li><a href="/pelvipower-therapy" class="hover:text-pf-orange">PelviPower Therapy</a></li>
+            <li><a href="/clinical-pilates" class="hover:text-pf-orange">Clinical Pilates</a></li>
           </ul>
         </div>
         <div>
           <p class="font-bold text-white mb-3 uppercase tracking-wide text-xs">Clinic</p>
           <ul class="space-y-2">
-            <li><a href="/about" class="hover:text-pf-coral">About</a></li>
-            <li><a href="/contact" class="hover:text-pf-coral">Contact</a></li>
-            <li><a href={SITE.rtfUrl} class="hover:text-pf-coral">Return To Form (general physio)</a></li>
+            <li><a href="/about" class="hover:text-pf-orange">About</a></li>
+            <li><a href="/contact" class="hover:text-pf-orange">Contact</a></li>
+            <li>179A Ponsonby Road, Auckland</li>
+            <li><a href={SITE.rtfUrl} class="hover:text-pf-orange">Return To Form (general physio)</a></li>
           </ul>
         </div>
       </div>
-      <div class="border-t border-white/10"><div class="max-w-6xl mx-auto px-4 py-5 text-xs text-slate-500">© PelvicForm · Part of Return To Form · 179A Ponsonby Road, Auckland</div></div>
+      <div class="border-t border-white/10"><div class="max-w-6xl mx-auto px-4 py-5 text-xs text-blue-300">© PelvicForm · Part of Return To Form · 179A Ponsonby Road, Ponsonby, Auckland</div></div>
     </footer>
   </body>
 </html>

@@ -2,32 +2,32 @@
 interface Props { sourcePage: string; eyebrow?: string; heading?: string; subhead?: string; }
 const {
   sourcePage,
-  eyebrow = 'Need to talk first?',
-  heading = 'Get in touch, confidentially',
-  subhead = 'Pelvic health is personal. Send a message and we will come back to you discreetly, within one business day.',
+  eyebrow = 'Have a question first?',
+  heading = 'Get in touch, discreetly',
+  subhead = 'Pelvic health is personal. Send a message and we will come back to you privately, within one business day.',
 } = Astro.props;
 ---
 <section class="bg-white py-16 md:py-20">
   <div class="max-w-3xl mx-auto px-4">
     <div class="text-center mb-10">
-      <p class="text-pf-coral text-sm font-extrabold uppercase tracking-widest mb-2">{eyebrow}</p>
+      <p class="text-pf-orange text-sm font-extrabold uppercase tracking-widest mb-2">{eyebrow}</p>
       <h2 class="text-3xl md:text-4xl mb-3">{heading}</h2>
       <p class="text-pf-slate">{subhead}</p>
     </div>
-    <form action="/api/contact" method="POST" data-webhook="TODO_WIRE_GHL_INBOUND_WEBHOOK" class="bg-pf-teal-light rounded-3xl border border-teal-100 p-8 md:p-10 space-y-5">
+    <form action="/api/contact" method="POST" data-webhook="TODO_WIRE_GHL_INBOUND_WEBHOOK" class="bg-pf-navy-light rounded-3xl border border-blue-100 p-8 md:p-10 space-y-5">
       <input type="hidden" name="source_page" value={sourcePage} />
       <input type="hidden" name="utm_source" id="utm_source" />
       <input type="hidden" name="gclid" id="gclid" />
       <input type="hidden" name="fbclid" id="fbclid" />
       <div class="grid md:grid-cols-2 gap-5">
-        <label class="block"><span class="text-sm font-bold text-pf-ink mb-1.5 block">Your name</span><input type="text" name="full_name" required class="w-full px-4 py-3 bg-white border border-slate-200 rounded-full focus:outline-none focus:border-pf-teal focus:ring-2 focus:ring-pf-teal/20" /></label>
-        <label class="block"><span class="text-sm font-bold text-pf-ink mb-1.5 block">Phone</span><input type="tel" name="phone" required inputmode="tel" class="w-full px-4 py-3 bg-white border border-slate-200 rounded-full focus:outline-none focus:border-pf-teal focus:ring-2 focus:ring-pf-teal/20" /></label>
+        <label class="block"><span class="text-sm font-bold text-pf-ink mb-1.5 block">Your name</span><input type="text" name="full_name" required class="w-full px-4 py-3 bg-white border border-slate-200 rounded-full focus:outline-none focus:border-pf-navy focus:ring-2 focus:ring-pf-navy/20" /></label>
+        <label class="block"><span class="text-sm font-bold text-pf-ink mb-1.5 block">Phone</span><input type="tel" name="phone" required inputmode="tel" class="w-full px-4 py-3 bg-white border border-slate-200 rounded-full focus:outline-none focus:border-pf-navy focus:ring-2 focus:ring-pf-navy/20" /></label>
       </div>
-      <label class="block"><span class="text-sm font-bold text-pf-ink mb-1.5 block">Email</span><input type="email" name="email" required class="w-full px-4 py-3 bg-white border border-slate-200 rounded-full focus:outline-none focus:border-pf-teal focus:ring-2 focus:ring-pf-teal/20" /></label>
-      <label class="block"><span class="text-sm font-bold text-pf-ink mb-1.5 block">What's going on? (optional)</span><textarea name="message" rows="3" class="w-full px-4 py-3 bg-white border border-slate-200 rounded-2xl focus:outline-none focus:border-pf-teal focus:ring-2 focus:ring-pf-teal/20"></textarea></label>
+      <label class="block"><span class="text-sm font-bold text-pf-ink mb-1.5 block">Email</span><input type="email" name="email" required class="w-full px-4 py-3 bg-white border border-slate-200 rounded-full focus:outline-none focus:border-pf-navy focus:ring-2 focus:ring-pf-navy/20" /></label>
+      <label class="block"><span class="text-sm font-bold text-pf-ink mb-1.5 block">What's going on? (optional)</span><textarea name="message" rows="3" class="w-full px-4 py-3 bg-white border border-slate-200 rounded-2xl focus:outline-none focus:border-pf-navy focus:ring-2 focus:ring-pf-navy/20"></textarea></label>
       <div class="flex flex-col sm:flex-row gap-3 items-center justify-between pt-1">
-        <p class="text-xs text-slate-500">Confidential. No referral needed to get in touch.</p>
-        <button type="submit" class="btn-primary">Send message</button>
+        <p class="text-xs text-slate-500">Discreet. No referral needed to get in touch.</p>
+        <button type="submit" class="btn-accent">Send message</button>
       </div>
     </form>
   </div>

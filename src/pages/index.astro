@@ -4,108 +4,131 @@ import Wave from '../components/Wave.astro';
 import ContactForm from '../components/ContactForm.astro';
 import FinalCTA from '../components/FinalCTA.astro';
 import { SITE } from '../lib/site';
-import { PF_SERVICES } from '../lib/services-data';
+import { PF_SERVICES, IMAGES } from '../lib/services-data';
 
-const title = 'PelvicForm | Pelvic Health Physio in Ponsonby Auckland | Women, Men & Children';
-const description = 'PelvicForm is a dedicated pelvic health physiotherapy clinic in Ponsonby, for women, men and children. Help with incontinence, prolapse, pelvic pain, pregnancy and post-surgery recovery. No referral needed.';
+const title = 'Pelvic Floor Physio Auckland | PelvicForm Ponsonby';
+const description = 'Specialist pelvic floor physiotherapy in Ponsonby, Auckland, for men and women. Discreet care for incontinence, prostate recovery, pelvic pain, plus Clinical Pilates and PelviPower. No referral needed. Book your assessment.';
 const canonical = `${SITE.domain}/`;
-const keywords = 'pelvic health auckland, pelvic floor physio ponsonby, incontinence treatment, prolapse physio, mens pelvic health, womens pelvic health, pelvic pain auckland';
+const keywords = 'pelvic floor physio auckland, pelvic health ponsonby, incontinence treatment, prolapse physio, prostate recovery, pelvipower, clinical pilates, mens pelvic health, womens pelvic health';
 
-const services = Object.values(PF_SERVICES);
+const modalities = [
+  { name: 'Targeted Physiotherapy', desc: 'Using real-time ultrasound to make sure you are activating the right muscles.', img: IMAGES.ultrasound },
+  { name: 'Clinical Pilates', desc: 'Rebuilding your core safely in our onsite studio.', img: IMAGES.pilates, href: '/clinical-pilates' },
+  { name: 'The PelviPower Chair', desc: 'Non-invasive magnetic stimulation to rapidly build muscle coordination while you sit, fully clothed.', img: IMAGES.pelvipower, href: '/pelvipower-therapy' },
+  { name: 'Acupuncture & Shockwave', desc: 'Our onsite acupuncturist and physios use advanced therapies to release chronic pelvic pain and overactive muscles.', img: IMAGES.acupuncture },
+];
+
 const faqs = [
   { q: 'Do I need a referral?', a: 'No. You can book directly. If a specialist referral would help, we can arrange one.' },
-  { q: 'Is this only for women?', a: 'No. We treat women, men and children. Men come to us for prostate recovery, leaking and pelvic pain; children for bedwetting and continence.' },
-  { q: 'Is it covered by ACC?', a: 'Often yes, including birth injuries and sensitive claims. Give us a call and we will tell you what is funded.' },
-  { q: 'What happens at the first visit?', a: 'A confidential conversation, a careful assessment, and a plan you are comfortable with. You control every step, including whether an internal examination is part of it.' },
+  { q: 'Is this only for women?', a: 'No. We treat men and women. Men come to us for prostate recovery, bladder control and pelvic pain; women for incontinence, prolapse, endometriosis, pregnancy and postpartum recovery.' },
+  { q: 'Is it covered by ACC?', a: 'Often, including maternal birth injuries. We lodge ACC birth injury claims for you. Give us a call and we will tell you what is funded.' },
+  { q: 'What happens at the first visit?', a: 'A comprehensive 1-hour assessment: we check your skeletal alignment, use real-time ultrasound, and (only with your consent) an internal exam to see exactly how your muscles activate. You leave with a clear plan and a take-home guide.' },
 ];
 const schemaJson = { '@context': 'https://schema.org', '@type': 'FAQPage', mainEntity: faqs.map((f) => ({ '@type': 'Question', name: f.q, acceptedAnswer: { '@type': 'Answer', text: f.a } })) };
 ---
 <Layout title={title} description={description} canonical={canonical} keywords={keywords} schemaJson={schemaJson}>
-  <section class="relative overflow-hidden bg-pf-ink">
-    <div class="absolute inset-0 opacity-40" style="background: radial-gradient(60% 80% at 18% 0%, #1F7A6E 0%, transparent 60%), radial-gradient(50% 70% at 100% 100%, #E8826B 0%, transparent 55%);"></div>
-    <div class="relative max-w-5xl mx-auto px-4 py-20 md:py-28 text-center">
-      <p class="text-pf-coral text-sm font-extrabold uppercase tracking-widest mb-4">Ponsonby · Women, men & children · No referral needed</p>
-      <h1 class="text-4xl md:text-6xl font-black text-white leading-[1.05] mb-6 max-w-3xl mx-auto">Pelvic health is nothing to be embarrassed about</h1>
-      <p class="text-lg md:text-xl text-white/85 mb-8 leading-relaxed max-w-2xl mx-auto">Leaking, prolapse, pelvic pain, recovery after birth or surgery. These are common, and they are treatable. PelvicForm is a dedicated pelvic health clinic in Ponsonby, for women, men and children, with care that is expert and completely confidential.</p>
-      <div class="flex flex-col sm:flex-row gap-3 justify-center">
-        <a href={SITE.bookUrl} class="btn-primary">Book a confidential appointment</a>
-        <a href="tel:+6498864611" class="btn-ghost">Or call 09 886 4611</a>
-      </div>
+  <!-- HERO -->
+  <section class="relative overflow-hidden bg-pf-navy">
+    <div class="absolute inset-0">
+      <img src={IMAGES.consult2} alt="Pelvic floor physiotherapist consulting with a patient in Ponsonby" class="w-full h-full object-cover opacity-30" />
+      <div class="absolute inset-0 bg-gradient-to-r from-pf-navy from-25% via-pf-navy/90 to-pf-navy/40"></div>
     </div>
-  </section>
-
-  <Wave from="#1C2B29" to="#FFFFFF" />
-
-  <!-- WHO -->
-  <section class="bg-white py-16 md:py-24">
-    <div class="max-w-6xl mx-auto px-4">
-      <div class="text-center mb-12 max-w-2xl mx-auto">
-        <p class="text-pf-coral text-sm font-extrabold uppercase tracking-widest mb-2">Who we help</p>
-        <h2 class="text-3xl md:text-4xl mb-3">Pelvic health affects everyone</h2>
-        <p class="text-lg text-pf-slate">It is not just a women's issue. We treat women, men and children, and the conversation is always confidential.</p>
-      </div>
-      <div class="grid md:grid-cols-3 gap-6">
-        <div class="bg-pf-teal-light rounded-2xl p-7 border border-teal-100">
-          <h3 class="text-xl mb-3 text-pf-teal">Women</h3>
-          <p class="text-pf-slate leading-relaxed text-sm">Incontinence, prolapse, pelvic pain, painful sex, and recovery after birth or gynaecological surgery.</p>
-        </div>
-        <div class="bg-pf-teal-light rounded-2xl p-7 border border-teal-100">
-          <h3 class="text-xl mb-3 text-pf-teal">Men</h3>
-          <p class="text-pf-slate leading-relaxed text-sm">Prostate surgery recovery, leaking, pelvic pain, and pelvic-floor causes of erectile dysfunction.</p>
-        </div>
-        <div class="bg-pf-teal-light rounded-2xl p-7 border border-teal-100">
-          <h3 class="text-xl mb-3 text-pf-teal">Children</h3>
-          <p class="text-pf-slate leading-relaxed text-sm">Bedwetting and daytime continence, with a gentle, child-appropriate approach.</p>
+    <div class="relative max-w-6xl mx-auto px-4 py-24 md:py-32">
+      <div class="max-w-2xl">
+        <p class="text-pf-orange text-sm font-extrabold uppercase tracking-widest mb-4">Pelvic floor physio · Ponsonby, Auckland</p>
+        <h1 class="text-4xl md:text-6xl font-extrabold text-white leading-[1.05] mb-6">Regain your everyday freedom</h1>
+        <p class="text-xl text-blue-100 mb-8 leading-relaxed">Auckland's expert pelvic floor physio clinic. Discreet care, pain relief, Clinical Pilates and PelviPower treatments in Ponsonby, for men and women.</p>
+        <div class="flex flex-col sm:flex-row gap-3">
+          <a href="/womens-pelvic-health" class="btn-accent">Women's Pelvic Health</a>
+          <a href="/mens-pelvic-health" class="btn-ghost">Men's Pelvic Health</a>
         </div>
       </div>
     </div>
   </section>
 
-  <Wave from="#FFFFFF" to="#E8F4F1" />
+  <Wave from="#004A80" to="#FFFFFF" />
 
-  <!-- SERVICES -->
-  <section class="bg-pf-teal-light py-16 md:py-24">
+  <!-- EMPATHY / POSITIONING (real copy) -->
+  <section class="bg-white py-16 md:py-20">
+    <div class="max-w-3xl mx-auto px-4 text-center">
+      <p class="text-xl text-pf-ink font-semibold leading-relaxed mb-5">Pelvic health shouldn't dictate your life.</p>
+      <p class="text-lg text-pf-slate leading-relaxed mb-4">As expert pelvic physiotherapists, we see the impact it has every day. You might find yourself mapping out the toilets before leaving the house, avoiding exercise because of leaks, or dealing with pain that affects your intimate life.</p>
+      <p class="text-lg text-pf-slate leading-relaxed">Whether you are recovering from prostate surgery, managing postpartum changes (including ACC-covered birth injuries), or going through menopause, you don't have to just put up with it. We help you get your body working with you, not against you.</p>
+    </div>
+  </section>
+
+  <Wave from="#FFFFFF" to="#004A80" />
+
+  <!-- THE TWO PATHWAYS -->
+  <section class="bg-pf-navy py-16 md:py-24">
     <div class="max-w-6xl mx-auto px-4">
-      <div class="text-center mb-12 max-w-2xl mx-auto">
-        <p class="text-pf-coral text-sm font-extrabold uppercase tracking-widest mb-2">How we help</p>
-        <h2 class="text-3xl md:text-4xl">What we treat</h2>
-      </div>
-      <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-5">
-        {services.map((s) => (
-          <a href={`/${s.slug}`} class="group bg-white rounded-2xl p-6 border border-teal-100 hover:border-pf-teal hover:shadow-lg transition-all">
-            <h3 class="text-lg mb-2 group-hover:text-pf-teal transition-colors">{s.label}</h3>
-            <p class="text-sm text-pf-slate leading-relaxed mb-4">{s.intro.slice(0, 110)}...</p>
-            <span class="text-pf-teal font-extrabold text-sm">Learn more →</span>
-          </a>
-        ))}
-        <a href="/post-surgical-rehab" class="group bg-white rounded-2xl p-6 border border-teal-100 hover:border-pf-teal hover:shadow-lg transition-all">
-          <h3 class="text-lg mb-2 group-hover:text-pf-teal transition-colors">Post-Surgical Rehab</h3>
-          <p class="text-sm text-pf-slate leading-relaxed mb-4">Preparing for and recovering from pelvic surgery, for better outcomes...</p>
-          <span class="text-pf-teal font-extrabold text-sm">Learn more →</span>
+      <div class="text-center mb-12"><p class="text-pf-orange text-sm font-extrabold uppercase tracking-widest mb-2">The pathways</p><h2 class="text-3xl md:text-4xl text-white">Where would you like to start?</h2></div>
+      <div class="grid md:grid-cols-2 gap-6">
+        <a href="/womens-pelvic-health" class="group bg-white rounded-3xl overflow-hidden hover:ring-2 hover:ring-pf-orange transition-all">
+          <div class="aspect-[16/9] overflow-hidden"><img src={IMAGES.womens} alt="Women's pelvic health physiotherapy" class="w-full h-full object-cover group-hover:scale-105 transition-transform" /></div>
+          <div class="p-7"><h3 class="text-2xl mb-2 group-hover:text-pf-orange transition-colors">Women's Pelvic Health</h3><p class="text-pf-slate leading-relaxed mb-4">Expert physio for incontinence, prolapse, endometriosis, and safe guidance through pregnancy and postpartum recovery. We lodge ACC maternal birth injury claims.</p><span class="text-pf-orange font-extrabold">Explore women's services →</span></div>
+        </a>
+        <a href="/mens-pelvic-health" class="group bg-white rounded-3xl overflow-hidden hover:ring-2 hover:ring-pf-orange transition-all">
+          <div class="aspect-[16/9] overflow-hidden"><img src={IMAGES.mens} alt="Men's pelvic health physiotherapy" class="w-full h-full object-cover group-hover:scale-105 transition-transform" /></div>
+          <div class="p-7"><h3 class="text-2xl mb-2 group-hover:text-pf-orange transition-colors">Men's Pelvic Health</h3><p class="text-pf-slate leading-relaxed mb-4">Practical, structured pre- and post-operation treatment focused on bladder control, pelvic pain and erectile function before and after prostate treatment.</p><span class="text-pf-orange font-extrabold">Explore men's services →</span></div>
         </a>
       </div>
     </div>
   </section>
 
-  <Wave from="#E8F4F1" to="#FFFFFF" />
+  <Wave from="#004A80" to="#FFFFFF" />
 
-  <!-- REASSURANCE -->
-  <section class="bg-white py-16 md:py-20">
-    <div class="max-w-3xl mx-auto px-4 text-center">
-      <p class="text-pf-coral text-sm font-extrabold uppercase tracking-widest mb-2">What it is like</p>
-      <h2 class="text-3xl md:text-4xl mb-6">Gentle, expert, and on your terms</h2>
-      <p class="text-lg text-pf-slate leading-relaxed mb-4">Your first visit is a confidential conversation and a careful assessment. We explain everything, and you decide what you are comfortable with at every step.</p>
-      <p class="text-lg text-pf-slate leading-relaxed">PelvicForm is part of <a href={SITE.rtfUrl} class="text-pf-teal font-semibold underline">Return To Form</a>, our Ponsonby physio clinic, so the wider team is right there if you need them.</p>
+  <!-- MULTIDISCIPLINARY -->
+  <section class="bg-white py-16 md:py-24">
+    <div class="max-w-6xl mx-auto px-4">
+      <div class="text-center mb-12 max-w-2xl mx-auto"><p class="text-pf-orange text-sm font-extrabold uppercase tracking-widest mb-2">Our approach</p><h2 class="text-3xl md:text-4xl mb-3">No one-size-fits-all</h2><p class="text-lg text-pf-slate">Depending on your assessment, your rehabilitation might draw on any of these, working together.</p></div>
+      <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-5">
+        {modalities.map((m) => (
+          <div class="bg-pf-orange-light rounded-2xl overflow-hidden border border-orange-100">
+            <div class="aspect-[4/3] overflow-hidden bg-white"><img src={m.img} alt={m.name} class="w-full h-full object-cover" /></div>
+            <div class="p-5">
+              <h3 class="text-base mb-2 leading-snug">{m.name}</h3>
+              <p class="text-sm text-pf-slate leading-relaxed mb-3">{m.desc}</p>
+              {m.href && <a href={m.href} class="text-pf-orange font-bold text-sm">Learn more →</a>}
+            </div>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <Wave from="#FFFFFF" to="#FFF6E8" />
+
+  <!-- PROCESS + PRICING (real) -->
+  <section class="bg-pf-orange-light py-16 md:py-24">
+    <div class="max-w-5xl mx-auto px-4 grid md:grid-cols-2 gap-12 items-start">
+      <div>
+        <p class="text-pf-orange text-sm font-extrabold uppercase tracking-widest mb-2">The process & pricing</p>
+        <h2 class="text-3xl md:text-4xl mb-5">Transparent pricing. A structured path forward.</h2>
+        <p class="text-pf-slate leading-relaxed mb-4">Your recovery starts with a comprehensive 1-hour assessment. We look at your general skeletal alignment to clear any referred symptoms, and use real-time ultrasound (and an internal exam, only with your consent) to see exactly how your muscles are activating, check for scar tissue, and identify painful zones.</p>
+        <p class="text-pf-slate leading-relaxed">You'll leave with a clear treatment plan, a take-home guide, and, if it's helpful, a 5-minute trial on the PelviPower chair to see how it feels.</p>
+      </div>
+      <div class="bg-white rounded-3xl p-8 border border-orange-100">
+        <h3 class="text-xl mb-5">PelviPower pricing</h3>
+        <ul class="space-y-4">
+          <li class="flex justify-between gap-4 border-b border-orange-100 pb-3"><span class="text-pf-slate">Initial assessment (30 min) + 30 min chair trial</span><span class="font-extrabold text-pf-navy shrink-0">$399</span></li>
+          <li class="flex justify-between gap-4 border-b border-orange-100 pb-3"><span class="text-pf-slate">Single PelviPower session</span><span class="font-extrabold text-pf-navy shrink-0">$350</span></li>
+          <li class="flex justify-between gap-4"><span class="text-pf-slate">Treatment course (12 sessions)</span><span class="font-extrabold text-pf-navy shrink-0">$1,800</span></li>
+        </ul>
+        <a href={SITE.bookUrl} class="btn-accent w-full mt-6">Book your assessment</a>
+        <p class="text-xs text-slate-500 mt-3 text-center">Located in Ponsonby, welcoming patients from across Auckland.</p>
+      </div>
     </div>
   </section>
 
   <!-- FAQ -->
-  <section class="bg-white pb-16 md:pb-20">
+  <section class="bg-white py-16 md:py-20">
     <div class="max-w-3xl mx-auto px-4">
+      <div class="text-center mb-10"><p class="text-pf-orange text-sm font-extrabold uppercase tracking-widest mb-2">FAQs</p><h2 class="text-3xl md:text-4xl">Common questions</h2></div>
       <div class="space-y-3">
         {faqs.map((f) => (
-          <details class="bg-pf-teal-light rounded-2xl border border-teal-100 group">
-            <summary class="cursor-pointer px-6 py-5 font-bold text-pf-ink list-none flex justify-between items-center gap-4"><span>{f.q}</span><span class="text-pf-coral group-open:rotate-45 transition-transform text-3xl font-light leading-none shrink-0">+</span></summary>
+          <details class="bg-pf-orange-light rounded-2xl border border-orange-100 group">
+            <summary class="cursor-pointer px-6 py-5 font-bold text-pf-ink list-none flex justify-between items-center gap-4"><span>{f.q}</span><span class="text-pf-orange group-open:rotate-45 transition-transform text-3xl font-light leading-none shrink-0">+</span></summary>
             <div class="px-6 pb-6 text-pf-slate leading-relaxed">{f.a}</div>
           </details>
         ))}

@@ -2,16 +2,16 @@
 import { SITE } from '../lib/site';
 interface Props { heading?: string; body?: string; }
 const {
-  heading = 'Take the first step',
-  body = 'Book a confidential first appointment. You are in control of every step from there. No referral needed.',
+  heading = 'Reclaim your everyday freedom',
+  body = 'Your recovery starts with a comprehensive 1-hour assessment. Discreet, thorough, and on your terms. No referral needed.',
 } = Astro.props;
 ---
-<section class="bg-pf-teal text-white">
+<section class="bg-pf-navy text-white">
   <div class="max-w-4xl mx-auto px-4 py-16 text-center">
     <h2 class="text-3xl md:text-4xl mb-5 text-white">{heading}</h2>
-    <p class="text-lg mb-8 text-white/85 max-w-2xl mx-auto leading-relaxed">{body}</p>
+    <p class="text-lg mb-8 text-blue-100 max-w-2xl mx-auto leading-relaxed">{body}</p>
     <div class="flex flex-col sm:flex-row gap-3 justify-center">
-      <a href={SITE.bookUrl} class="inline-flex items-center justify-center px-8 py-4 bg-white text-pf-teal font-extrabold uppercase tracking-wide text-sm rounded-full hover:bg-pf-teal-light transition">Book online</a>
+      <a href={SITE.bookUrl} class="btn-accent">Book your assessment</a>
       <a href="tel:+6498864611" class="btn-ghost">Call 09 886 4611</a>
     </div>
   </div>

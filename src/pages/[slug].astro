@@ -22,44 +22,44 @@ const schemaJson = [
 ];
 ---
 <Layout title={s.metaTitle} description={s.metaDescription} canonical={canonical} keywords={s.keywords} schemaJson={schemaJson}>
-  <section class="relative overflow-hidden bg-pf-ink">
+  <section class="relative overflow-hidden bg-pf-navy">
     <div class="absolute inset-0">
-      <img src={s.heroImage} alt={`${s.label} at PelvicForm Ponsonby`} class="w-full h-full object-cover opacity-70" style="object-position:center;" />
-      <div class="absolute inset-0 bg-gradient-to-r from-pf-ink from-20% via-pf-ink/85 via-55% to-pf-ink/30"></div>
+      <img src={s.heroImage} alt={`${s.label} at PelvicForm Ponsonby`} class="w-full h-full object-cover opacity-30" style="object-position:center;" />
+      <div class="absolute inset-0 bg-gradient-to-r from-pf-navy from-30% via-pf-navy/90 to-pf-navy/50"></div>
     </div>
     <div class="relative max-w-6xl mx-auto px-4 py-20 md:py-28">
-      <div class="max-w-xl">
-        <p class="text-pf-coral text-sm font-extrabold uppercase tracking-widest mb-4">{s.eyebrow} · Ponsonby</p>
-        <h1 class="text-4xl md:text-5xl font-black text-white leading-tight mb-5">{s.h1}</h1>
-        <p class="text-lg text-white/90 mb-8 leading-relaxed">{s.intro}</p>
+      <div class="max-w-2xl">
+        <p class="text-pf-orange text-sm font-extrabold uppercase tracking-widest mb-4">{s.eyebrow} · Ponsonby</p>
+        <h1 class="text-4xl md:text-5xl font-extrabold text-white leading-tight mb-5">{s.h1}</h1>
+        <p class="text-lg text-blue-100 mb-8 leading-relaxed">{s.intro}</p>
         <div class="flex flex-col sm:flex-row gap-3">
-          <a href={SITE.bookUrl} class="btn-primary">Book a confidential appointment</a>
+          <a href={SITE.bookUrl} class="btn-accent">Book your assessment</a>
           <a href="tel:+6498864611" class="btn-ghost">Or call 09 886 4611</a>
         </div>
       </div>
     </div>
   </section>
 
-  <Wave from="#1C2B29" to="#E8F4F1" />
+  <Wave from="#004A80" to="#FFF6E8" />
 
-  <section class="bg-pf-teal-light py-8 border-y border-teal-100">
+  <section class="bg-pf-orange-light py-8 border-y border-orange-100">
     <div class="max-w-6xl mx-auto px-4 grid grid-cols-2 md:grid-cols-4 gap-6 text-center">
-      <div><p class="text-3xl font-black text-pf-teal">All</p><p class="text-sm text-pf-slate mt-1">Women, men, children</p></div>
-      <div><p class="text-3xl font-black text-pf-teal">ACC</p><p class="text-sm text-pf-slate mt-1">Incl. sensitive claims</p></div>
-      <div><p class="text-3xl font-black text-pf-teal">No</p><p class="text-sm text-pf-slate mt-1">Referral needed</p></div>
-      <div><p class="text-3xl font-black text-pf-teal">100%</p><p class="text-sm text-pf-slate mt-1">Confidential</p></div>
+      <div><p class="text-3xl font-extrabold text-pf-orange">Discreet</p><p class="text-sm text-pf-slate mt-1">Private, on your terms</p></div>
+      <div><p class="text-3xl font-extrabold text-pf-orange">ACC</p><p class="text-sm text-pf-slate mt-1">Incl. birth injuries</p></div>
+      <div><p class="text-3xl font-extrabold text-pf-orange">No</p><p class="text-sm text-pf-slate mt-1">Referral needed</p></div>
+      <div><p class="text-3xl font-extrabold text-pf-orange">Ponsonby</p><p class="text-sm text-pf-slate mt-1">All of Auckland</p></div>
     </div>
   </section>
 
-  <section class="bg-pf-teal-light py-16 md:py-20">
+  <section class="bg-pf-orange-light py-16 md:py-20">
     <div class="max-w-6xl mx-auto px-4">
       <div class="text-center mb-12 max-w-2xl mx-auto">
-        <p class="text-pf-coral text-sm font-extrabold uppercase tracking-widest mb-2">What we help with</p>
-        <h2 class="text-3xl md:text-4xl">You are in good hands</h2>
+        <p class="text-pf-orange text-sm font-extrabold uppercase tracking-widest mb-2">What we help with</p>
+        <h2 class="text-3xl md:text-4xl">Expert, tailored care</h2>
       </div>
       <div class="grid md:grid-cols-2 gap-5">
         {s.conditions.map((c) => (
-          <div class="bg-white rounded-2xl p-6 border border-teal-100 hover:border-pf-teal hover:shadow-md transition-all">
+          <div class="bg-white rounded-2xl p-6 border border-orange-100 hover:border-pf-orange hover:shadow-md transition-all">
             <h3 class="text-lg mb-2 leading-snug">{c.name}</h3>
             <p class="text-sm text-pf-slate leading-relaxed">{c.desc}</p>
           </div>
@@ -68,7 +68,7 @@ const schemaJson = [
     </div>
   </section>
 
-  <Wave from="#E8F4F1" to="#FFFFFF" />
+  <Wave from="#FFF6E8" to="#FFFFFF" />
 
   <ContactForm sourcePage={s.slug} />
   <FinalCTA />
