@@ -40,9 +40,9 @@ const schemaJson = [
     </div>
   </section>
 
-  <Wave from="#004A80" to="#FFF6E8" />
+  <Wave from="#004A80" to="#FFFFFF" />
 
-  <section class="bg-pf-orange-light py-8 border-y border-orange-100">
+  <section class="bg-white py-8 border-b border-slate-100">
     <div class="max-w-6xl mx-auto px-4 grid grid-cols-2 md:grid-cols-4 gap-6 text-center">
       <div><p class="text-3xl font-extrabold text-pf-orange">Discreet</p><p class="text-sm text-pf-slate mt-1">Private, on your terms</p></div>
       <div><p class="text-3xl font-extrabold text-pf-orange">ACC</p><p class="text-sm text-pf-slate mt-1">Incl. birth injuries</p></div>
@@ -51,10 +51,24 @@ const schemaJson = [
     </div>
   </section>
 
+  <!-- BODY: the depth -->
+  <section class="bg-white py-16 md:py-20">
+    <div class="max-w-3xl mx-auto px-4 space-y-10">
+      {s.body.map((b) => (
+        <div>
+          <h2 class="text-2xl md:text-3xl mb-3">{b.heading}</h2>
+          <p class="text-lg text-pf-slate leading-relaxed">{b.text}</p>
+        </div>
+      ))}
+    </div>
+  </section>
+
+  <Wave from="#FFFFFF" to="#FFF6E8" />
+
   <section class="bg-pf-orange-light py-16 md:py-20">
     <div class="max-w-6xl mx-auto px-4">
       <div class="text-center mb-12 max-w-2xl mx-auto">
-        <p class="text-pf-orange text-sm font-extrabold uppercase tracking-widest mb-2">What we help with</p>
+        <p class="text-pf-orange text-sm font-extrabold uppercase tracking-widest mb-2">{s.conditionsHeading}</p>
         <h2 class="text-3xl md:text-4xl">Expert, tailored care</h2>
       </div>
       <div class="grid md:grid-cols-2 gap-5">
@@ -67,6 +81,23 @@ const schemaJson = [
       </div>
     </div>
   </section>
+
+  {s.pricing && (
+    <section class="bg-pf-orange-light pb-16 md:pb-20">
+      <div class="max-w-3xl mx-auto px-4">
+        <div class="bg-white rounded-3xl p-8 md:p-10 border border-orange-100">
+          <h2 class="text-2xl md:text-3xl mb-2">{s.pricing.heading}</h2>
+          <p class="text-pf-slate leading-relaxed mb-6">{s.pricing.intro}</p>
+          <ul class="space-y-4">
+            {s.pricing.rows.map((r) => (
+              <li class="flex justify-between gap-4 border-b border-orange-100 pb-3 last:border-0"><span class="text-pf-slate">{r.item}</span><span class="font-extrabold text-pf-navy shrink-0">{r.price}</span></li>
+            ))}
+          </ul>
+          {s.pricing.note && <p class="text-sm text-slate-500 mt-5">{s.pricing.note}</p>}
+        </div>
+      </div>
+    </section>
+  )}
 
   <Wave from="#FFF6E8" to="#FFFFFF" />
 
