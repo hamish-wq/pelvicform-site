@@ -1,0 +1,28 @@
+---
+import Layout from '../layouts/Layout.astro';
+import Wave from '../components/Wave.astro';
+import FinalCTA from '../components/FinalCTA.astro';
+import { SITE } from '../lib/site';
+const title = 'About PelvicForm | Pelvic Health Clinic, Ponsonby';
+const description = 'PelvicForm is a dedicated pelvic health physiotherapy clinic in Ponsonby, for women, men and children. Part of Return To Form. Confidential, expert, no referral needed.';
+const canonical = `${SITE.domain}/about`;
+---
+<Layout title={title} description={description} canonical={canonical}>
+  <section class="bg-pf-ink py-16 md:py-20 text-center">
+    <div class="max-w-3xl mx-auto px-4">
+      <p class="text-pf-coral text-sm font-extrabold uppercase tracking-widest mb-4">About</p>
+      <h1 class="text-4xl md:text-5xl font-black text-white mb-5">A clinic devoted to pelvic health</h1>
+      <p class="text-lg text-white/85">For women, men and children. In Ponsonby. Part of Return To Form.</p>
+    </div>
+  </section>
+  <Wave from="#1C2B29" to="#FFFFFF" />
+  <section class="bg-white py-16 md:py-20">
+    <div class="max-w-3xl mx-auto px-4 space-y-6 text-pf-slate leading-relaxed">
+      <p class="text-xl text-pf-ink font-semibold">Pelvic health is one of the most common things people struggle with, and one of the least talked about.</p>
+      <p>PelvicForm exists to change that. We are a dedicated pelvic health clinic, which means this is not a side service squeezed between sports injuries. It is what we do, with the time, privacy and expertise it deserves.</p>
+      <p>We treat women, men and children. We help with incontinence, prolapse, pelvic pain, pregnancy and postnatal recovery, prostate recovery, and rehab before and after pelvic surgery. Much of it is covered by ACC, including birth injuries and sensitive claims, and you never need a referral to start.</p>
+      <p>PelvicForm is part of <a href={SITE.rtfUrl} class="text-pf-teal font-semibold underline">Return To Form</a>, our multi-disciplinary physio clinic in Ponsonby. If you need anything beyond pelvic health, the wider team is right there.</p>
+    </div>
+  </section>
+  <FinalCTA />
+</Layout>

@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://pelvicform.lazymagnet.com/sitemap-index.xml

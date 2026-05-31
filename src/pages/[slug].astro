@@ -1,0 +1,75 @@
+---
+import Layout from '../layouts/Layout.astro';
+import Wave from '../components/Wave.astro';
+import ContactForm from '../components/ContactForm.astro';
+import FinalCTA from '../components/FinalCTA.astro';
+import { SITE } from '../lib/site';
+import { PF_SERVICES } from '../lib/services-data';
+
+export function getStaticPaths() {
+  return Object.values(PF_SERVICES).map((s) => ({ params: { slug: s.slug } }));
+}
+const { slug } = Astro.params;
+const s = PF_SERVICES[slug as string];
+const canonical = `${SITE.domain}/${s.slug}`;
+
+const schemaJson = [
+  { '@context': 'https://schema.org', '@type': 'MedicalSpecialty', name: s.label, relevantSpecialty: 'Physiotherapy' },
+  { '@context': 'https://schema.org', '@type': 'BreadcrumbList', itemListElement: [
+    { '@type': 'ListItem', position: 1, name: 'Home', item: SITE.domain },
+    { '@type': 'ListItem', position: 2, name: s.label, item: canonical },
+  ]},
+];
+---
+<Layout title={s.metaTitle} description={s.metaDescription} canonical={canonical} keywords={s.keywords} schemaJson={schemaJson}>
+  <section class="relative overflow-hidden bg-pf-ink">
+    <div class="absolute inset-0">
+      <img src={s.heroImage} alt={`${s.label} at PelvicForm Ponsonby`} class="w-full h-full object-cover opacity-70" style="object-position:center;" />
+      <div class="absolute inset-0 bg-gradient-to-r from-pf-ink from-20% via-pf-ink/85 via-55% to-pf-ink/30"></div>
+    </div>
+    <div class="relative max-w-6xl mx-auto px-4 py-20 md:py-28">
+      <div class="max-w-xl">
+        <p class="text-pf-coral text-sm font-extrabold uppercase tracking-widest mb-4">{s.eyebrow} · Ponsonby</p>
+        <h1 class="text-4xl md:text-5xl font-black text-white leading-tight mb-5">{s.h1}</h1>
+        <p class="text-lg text-white/90 mb-8 leading-relaxed">{s.intro}</p>
+        <div class="flex flex-col sm:flex-row gap-3">
+          <a href={SITE.bookUrl} class="btn-primary">Book a confidential appointment</a>
+          <a href="tel:+6498864611" class="btn-ghost">Or call 09 886 4611</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <Wave from="#1C2B29" to="#E8F4F1" />
+
+  <section class="bg-pf-teal-light py-8 border-y border-teal-100">
+    <div class="max-w-6xl mx-auto px-4 grid grid-cols-2 md:grid-cols-4 gap-6 text-center">
+      <div><p class="text-3xl font-black text-pf-teal">All</p><p class="text-sm text-pf-slate mt-1">Women, men, children</p></div>
+      <div><p class="text-3xl font-black text-pf-teal">ACC</p><p class="text-sm text-pf-slate mt-1">Incl. sensitive claims</p></div>
+      <div><p class="text-3xl font-black text-pf-teal">No</p><p class="text-sm text-pf-slate mt-1">Referral needed</p></div>
+      <div><p class="text-3xl font-black text-pf-teal">100%</p><p class="text-sm text-pf-slate mt-1">Confidential</p></div>
+    </div>
+  </section>
+
+  <section class="bg-pf-teal-light py-16 md:py-20">
+    <div class="max-w-6xl mx-auto px-4">
+      <div class="text-center mb-12 max-w-2xl mx-auto">
+        <p class="text-pf-coral text-sm font-extrabold uppercase tracking-widest mb-2">What we help with</p>
+        <h2 class="text-3xl md:text-4xl">You are in good hands</h2>
+      </div>
+      <div class="grid md:grid-cols-2 gap-5">
+        {s.conditions.map((c) => (
+          <div class="bg-white rounded-2xl p-6 border border-teal-100 hover:border-pf-teal hover:shadow-md transition-all">
+            <h3 class="text-lg mb-2 leading-snug">{c.name}</h3>
+            <p class="text-sm text-pf-slate leading-relaxed">{c.desc}</p>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <Wave from="#E8F4F1" to="#FFFFFF" />
+
+  <ContactForm sourcePage={s.slug} />
+  <FinalCTA />
+</Layout>

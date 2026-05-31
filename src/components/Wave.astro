@@ -1,0 +1,9 @@
+---
+interface Props { from: string; to: string; }
+const { from, to } = Astro.props;
+---
+<div class="relative w-full leading-[0]" style={`background:${from};`}>
+  <svg viewBox="0 0 1440 100" preserveAspectRatio="none" class="block w-full h-[50px] md:h-[80px]" aria-hidden="true">
+    <path d="M0,40 C320,90 720,90 1080,55 C1260,38 1360,40 1440,55 L1440,100 L0,100 Z" style={`fill:${to};`}></path>
+  </svg>
+</div>

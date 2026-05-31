@@ -1,0 +1,37 @@
+@import "tailwindcss";
+
+@theme {
+  /* PelvicForm: calm, clinical-warm, reassuring. Distinct from RTF orange, harmonious. */
+  --color-pf-teal: #1F7A6E;
+  --color-pf-teal-dark: #145C53;
+  --color-pf-teal-light: #E8F4F1;
+  --color-pf-coral: #E8826B;
+  --color-pf-coral-dark: #D46A52;
+  --color-pf-ink: #1C2B29;
+  --color-pf-slate: #4A5A57;
+
+  --font-sans: "Nunito Sans", system-ui, sans-serif;
+  --radius-pill: 50px;
+}
+
+@layer base {
+  body { font-family: var(--font-sans); color: var(--color-pf-ink); }
+  h1, h2, h3, h4, h5, h6 { font-family: var(--font-sans); font-weight: 800; letter-spacing: -0.01em; }
+}
+
+@layer components {
+  .btn-primary {
+    display:inline-flex; align-items:center; justify-content:center;
+    padding:0.875rem 2rem; background:var(--color-pf-teal); color:white;
+    font-weight:800; border-radius:var(--radius-pill); border:2px solid var(--color-pf-teal);
+    transition:all .2s; font-size:1rem; line-height:1;
+  }
+  .btn-primary:hover { background:var(--color-pf-teal-dark); border-color:var(--color-pf-teal-dark); }
+  .btn-ghost {
+    display:inline-flex; align-items:center; justify-content:center;
+    padding:0.875rem 2rem; background:rgba(255,255,255,0.1); color:white;
+    font-weight:800; border-radius:var(--radius-pill); border:2px solid rgba(255,255,255,0.35);
+    transition:all .2s; font-size:1rem; line-height:1;
+  }
+  .btn-ghost:hover { background:rgba(255,255,255,0.2); }
+}
