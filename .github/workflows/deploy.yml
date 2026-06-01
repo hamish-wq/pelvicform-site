@@ -20,8 +20,15 @@ jobs:
           node-version: 22
       - run: npm ci
       - run: npm run build
-      - name: TDD site audit (SEO / a11y / leak gate)
+      - name: TDD site audit (SEO / structure / CRO / leak gate)
         run: node audit.mjs
+      - name: Install Chromium for contrast gate
+        run: npx playwright install --with-deps chromium
+      - name: Contrast / visibility gate (axe colour-contrast on CTAs + headings)
+        run: |
+          npm run preview &
+          timeout 60 sh -c 'until curl -sf http://localhost:4321 >/dev/null; do sleep 1; done'
+          npm run a11y
   build:
     needs: audit
     runs-on: ubuntu-latest
