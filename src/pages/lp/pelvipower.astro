@@ -1,0 +1,96 @@
+---
+import LandingLayout from '../../layouts/LandingLayout.astro';
+import { SITE } from '../../lib/site';
+
+const title = 'PelviPower: Rebuild Your Pelvic Floor | PelvicForm';
+const description = 'Leaks when you laugh, run or sneeze? PelviPower builds pelvic floor strength while you sit, fully clothed. Book an assessment in Ponsonby, includes a free taster.';
+const canonical = `${SITE.domain}/lp/pelvipower`;
+const heroImage = 'https://assets.cdn.filesafe.space/AiNs33SgZZAvOuPlmM6x/media/633d2b8edb047a39ff59a773.png';
+
+const suits = [
+  'Leaks when you laugh, cough, sneeze, run or lift',
+  'A sudden, urgent need to go that is hard to hold',
+  'Rebuilding after childbirth, or after prostate surgery',
+  'A pelvic floor that feels weak, or that you struggle to switch on',
+];
+const how = [
+  { t: 'You stay fully clothed', d: 'Sit on the chair while focused magnetic stimulation does the work. No needles, no surgery, nothing to undress for.' },
+  { t: 'It does what is hard to do alone', d: 'Strong, repeated contractions of the right muscles, building coordination and strength faster than exercises alone.' },
+  { t: 'Short and comfortable', d: 'Sessions are quick. Most people find it easy, even relaxing.' },
+];
+---
+
+<LandingLayout title={title} description={description} canonical={canonical}>
+  <!-- HERO -->
+  <section class="relative overflow-hidden bg-pf-navy">
+    <div class="absolute inset-0">
+      <img src={heroImage} alt="PelviPower pelvic floor therapy at PelvicForm Ponsonby" class="w-full h-full object-cover" style="object-position: center;" />
+      <div class="absolute inset-0 bg-gradient-to-r from-pf-navy from-25% via-pf-navy/85 via-60% to-pf-navy/40"></div>
+    </div>
+    <div class="relative max-w-5xl mx-auto px-4 py-20 md:py-28">
+      <div class="max-w-xl">
+        <p class="text-pf-orange text-sm font-bold uppercase tracking-widest mb-4">PelviPower · Ponsonby</p>
+        <h1 class="text-4xl md:text-5xl font-extrabold text-white leading-tight mb-5">Leaks when you laugh or run? You don't have to live with it.</h1>
+        <p class="text-lg text-white/90 mb-8 leading-relaxed">PelviPower builds pelvic floor strength while you sit, fully clothed. It is one of the fastest, most comfortable ways to give a weak or uncoordinated pelvic floor a real head start, with no needles and no surgery.</p>
+        <a href={SITE.bookUrl} class="btn-primary">Book your assessment</a>
+        <p class="text-white/60 text-sm mt-4">Includes a free PelviPower taster if it is right for you</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- WHO IT SUITS -->
+  <section class="bg-blue-50 py-14 md:py-16">
+    <div class="max-w-3xl mx-auto px-4">
+      <h2 class="text-2xl md:text-3xl mb-6 text-center">Does this sound like you?</h2>
+      <ul class="space-y-3">
+        {suits.map((s) => (
+          <li class="flex gap-3 bg-white rounded-2xl px-5 py-4 border border-blue-100">
+            <span class="text-pf-orange font-bold shrink-0">✓</span>
+            <span class="text-slate-700 leading-relaxed">{s}</span>
+          </li>
+        ))}
+      </ul>
+      <p class="text-center text-slate-600 mt-6">It is more common than anyone lets on, and for most people it genuinely improves with the right plan.</p>
+    </div>
+  </section>
+
+  <!-- HOW IT WORKS -->
+  <section class="bg-white py-14 md:py-20">
+    <div class="max-w-5xl mx-auto px-4">
+      <div class="text-center mb-10 max-w-2xl mx-auto">
+        <h2 class="text-3xl md:text-4xl">How PelviPower works</h2>
+      </div>
+      <div class="grid md:grid-cols-3 gap-5">
+        {how.map((h) => (
+          <div class="bg-blue-50 rounded-2xl p-6 border border-blue-100">
+            <h3 class="text-lg mb-2 leading-snug">{h.t}</h3>
+            <p class="text-sm text-slate-600 leading-relaxed">{h.d}</p>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- PRIMARY OFFER -->
+  <section id="book" class="bg-pf-navy py-16 md:py-20">
+    <div class="max-w-2xl mx-auto px-4 text-center">
+      <h2 class="text-3xl md:text-4xl text-white mb-4">Book a pelvic floor assessment</h2>
+      <p class="text-blue-100 mb-8 leading-relaxed">Your first visit is a proper one-hour assessment with Zee or Michaela. They will find what is actually driving your symptoms, give you a clear plan, and if PelviPower is right for you, you will get a free taster so you can feel exactly how it works before committing to anything.</p>
+      <a href={SITE.bookUrl} class="inline-flex items-center justify-center px-8 py-4 bg-pf-orange text-white font-bold rounded-full hover:brightness-110 transition shadow-lg">Book your assessment</a>
+      <p class="text-blue-200 text-sm mt-4">Or call <a href="tel:+6498864611" class="font-bold underline">{SITE.phone}</a></p>
+    </div>
+  </section>
+
+  <!-- SECONDARY: lead magnet -->
+  <section class="bg-white py-12 md:py-14 border-t border-slate-100">
+    <div class="max-w-xl mx-auto px-4 text-center">
+      <h2 class="text-2xl md:text-3xl mb-2">Want to understand it first?</h2>
+      <p class="text-slate-600 mb-6">Get our free guide to fixing a weak pelvic floor: what actually causes leaks, what helps, and what to expect. No pressure, just the facts.</p>
+      <form action="https://services.leadconnectorhq.com/hooks/REPLACE_WITH_GHL_INBOUND_WEBHOOK" method="POST" class="bg-blue-50 rounded-2xl p-6 space-y-4 text-left border border-blue-100">
+        <input type="hidden" name="source_page" value="lp-pelvipower-guide" />
+        <label class="block"><span class="text-sm font-bold text-pf-navy mb-1.5 block">Email</span><input type="email" name="email" required class="w-full px-4 py-3 bg-white border border-blue-200 rounded-lg focus:outline-none focus:border-pf-orange focus:ring-2 focus:ring-pf-orange/20" /></label>
+        <button type="submit" class="btn-primary w-full">Send me the guide</button>
+      </form>
+    </div>
+  </section>
+</LandingLayout>

@@ -2,5 +2,5 @@
   "_comment": "Declarative test spec. audit.mjs reads it for cluster + utility exemptions. PelvicForm's 4 services are parallel (no pillar/spoke cluster yet); about + contact are utility pages.",
   "clusters": [],
   "utilityPages": ["/about", "/contact"],
-  "cro": { "landingPages": [] }
+  "cro": { "landingPages": ["/lp/pelvipower"] }
 }

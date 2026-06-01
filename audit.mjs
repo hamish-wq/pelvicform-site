@@ -75,6 +75,9 @@ for (const [p, d] of Object.entries(pages)) {
 
 let hard = 0, soft = 0;
 const utility = new Set([...(spec?.utilityPages || []), '/privacy', '/terms', '/privacy-policy-2023', '/']);
+// Paid-traffic landing pages: intentionally noindex + not internally linked. Exempt from the
+// noindex/orphan/thin rules; instead assert a tight attention ratio (few internal links).
+const landing = new Set([...((spec?.cro && spec.cro.landingPages) || [])].map((u) => u.replace(/\/$/, '') || '/'));
 
 function report(p, fails, warns) {
   if (fails.length) { hard += fails.length; console.log(`\n  \x1b[31mFAIL\x1b[0m ${p}`); fails.forEach((f) => console.log(`       - ${f}`)); }
@@ -85,7 +88,8 @@ function report(p, fails, warns) {
 
 for (const [p, d] of Object.entries(pages)) {
   const F = [], W = [];
-  if (d.robots && /noindex/i.test(d.robots)) F.push(`indexable: robots="${d.robots}"`);
+  const isLanding = landing.has(p);
+  if (d.robots && /noindex/i.test(d.robots) && !isLanding) F.push(`indexable: robots="${d.robots}"`);
   if (!d.title) F.push('no <title>'); else if (d.title.length > 65) F.push(`title ${d.title.length}>65`);
   if (!d.desc) F.push('no meta description'); else if (d.desc.length < 50 || d.desc.length > 165) F.push(`meta-desc ${d.desc.length} (50-165)`);
   if (!d.canonical) F.push('no canonical');
@@ -112,9 +116,14 @@ for (const [p, d] of Object.entries(pages)) {
     if (visible >= 7) F.push(`form has ${visible} visible fields (>=7)`);
     else if (visible === 6) W.push('form has 6 fields (aim <=5)');
   }
-  if (d.depth >= 2 && !d.hasBreadcrumb) F.push('no BreadcrumbList schema (page >=2 deep)');
-  if (!utility.has(p) && inbound[p] === 0) F.push('orphan: no inbound body link');
-  if (!utility.has(p) && d.words < 250) W.push(`thin: ~${d.words} words`);
+  if (d.depth >= 2 && !d.hasBreadcrumb && !isLanding) F.push('no BreadcrumbList schema (page >=2 deep)');
+  if (!utility.has(p) && !isLanding && inbound[p] === 0) F.push('orphan: no inbound body link');
+  if (!utility.has(p) && !isLanding && d.words < 250) W.push(`thin: ~${d.words} words`);
+  if (isLanding) {
+    // Attention ratio: a landing page should point at ONE goal — few internal links, no nav.
+    const internalCount = new Set(d.links.map((l) => l.target).filter((t) => t !== p)).size;
+    if (internalCount > 4) F.push(`landing attention ratio: ${internalCount} distinct internal links (>4 — strip nav/links to the one goal)`);
+  }
   report(p, F, W);
 }
 
