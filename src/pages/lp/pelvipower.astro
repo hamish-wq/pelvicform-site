@@ -5,7 +5,8 @@ import { SITE } from '../../lib/site';
 const title = 'PelviPower: Rebuild Your Pelvic Floor | PelvicForm';
 const description = 'Leaks when you laugh, run or sneeze? PelviPower builds pelvic floor strength while you sit, fully clothed. Book an assessment in Ponsonby, includes a free taster.';
 const canonical = `${SITE.domain}/lp/pelvipower`;
-const heroImage = 'https://assets.cdn.filesafe.space/AiNs33SgZZAvOuPlmM6x/media/633d2b8edb047a39ff59a773.png';
+const chairImage = '/pelvipower-chair.png';
+const clinicImage = 'https://assets.cdn.filesafe.space/AiNs33SgZZAvOuPlmM6x/media/633d2b8edb047a39ff59a773.png';
 
 const suits = [
   'Leaks when you laugh, cough, sneeze, run or lift',
@@ -21,36 +22,42 @@ const how = [
 ---
 
 <LandingLayout title={title} description={description} canonical={canonical}>
-  <!-- HERO -->
+  <!-- HERO: split — text on navy, the real chair on a clean panel -->
   <section class="relative overflow-hidden bg-pf-navy">
-    <div class="absolute inset-0">
-      <img src={heroImage} alt="PelviPower pelvic floor therapy at PelvicForm Ponsonby" class="w-full h-full object-cover" style="object-position: center;" />
-      <div class="absolute inset-0 bg-gradient-to-r from-pf-navy from-25% via-pf-navy/85 via-60% to-pf-navy/40"></div>
-    </div>
-    <div class="relative max-w-5xl mx-auto px-4 py-20 md:py-28">
-      <div class="max-w-xl">
+    <div class="absolute inset-0 opacity-40" style="background: radial-gradient(55% 80% at 85% 10%, #F99F1E 0%, transparent 55%), radial-gradient(50% 70% at 0% 100%, #0a6cb0 0%, transparent 55%);"></div>
+    <div class="relative max-w-5xl mx-auto px-4 py-16 md:py-24 grid lg:grid-cols-2 gap-10 items-center">
+      <div>
         <p class="text-pf-orange text-sm font-bold uppercase tracking-widest mb-4">PelviPower · Ponsonby</p>
         <h1 class="text-4xl md:text-5xl font-extrabold text-white leading-tight mb-5">Leaks when you laugh or run? You don't have to live with it.</h1>
-        <p class="text-lg text-white/90 mb-8 leading-relaxed">PelviPower builds pelvic floor strength while you sit, fully clothed. It is one of the fastest, most comfortable ways to give a weak or uncoordinated pelvic floor a real head start, with no needles and no surgery.</p>
-        <a href={SITE.bookUrl} class="btn-primary">Book your assessment</a>
-        <p class="text-white/60 text-sm mt-4">Includes a free PelviPower taster if it is right for you</p>
+        <p class="text-lg text-white/90 mb-8 leading-relaxed">PelviPower builds pelvic floor strength while you sit, fully clothed. One of the fastest, most comfortable ways to give a weak or uncoordinated pelvic floor a real head start, with no needles and no surgery.</p>
+        <a href={SITE.bookUrl} class="btn-accent">Book your assessment</a>
+        <p class="text-white/70 text-sm mt-4">Includes a free PelviPower taster if it is right for you</p>
+      </div>
+      <div class="bg-white rounded-3xl p-6 shadow-2xl">
+        <img src={chairImage} alt="The PelviPower pelvic floor training chair" class="w-full h-auto object-contain max-h-[400px] mx-auto" />
+        <p class="text-center text-pf-slate text-sm mt-3 font-semibold">The PelviPower chair. You sit on it fully clothed.</p>
       </div>
     </div>
   </section>
 
-  <!-- WHO IT SUITS -->
-  <section class="bg-blue-50 py-14 md:py-16">
-    <div class="max-w-3xl mx-auto px-4">
-      <h2 class="text-2xl md:text-3xl mb-6 text-center">Does this sound like you?</h2>
-      <ul class="space-y-3">
-        {suits.map((s) => (
-          <li class="flex gap-3 bg-white rounded-2xl px-5 py-4 border border-blue-100">
-            <span class="text-pf-orange font-bold shrink-0">✓</span>
-            <span class="text-slate-700 leading-relaxed">{s}</span>
-          </li>
-        ))}
-      </ul>
-      <p class="text-center text-slate-600 mt-6">It is more common than anyone lets on, and for most people it genuinely improves with the right plan.</p>
+  <!-- WHO IT SUITS: image + list split -->
+  <section class="bg-blue-50 py-14 md:py-20">
+    <div class="max-w-5xl mx-auto px-4 grid md:grid-cols-2 gap-10 items-center">
+      <div class="order-2 md:order-1">
+        <img src={clinicImage} alt="Pelvic floor assessment at PelvicForm Ponsonby" class="w-full rounded-3xl shadow-lg object-cover aspect-[4/3]" loading="lazy" />
+      </div>
+      <div class="order-1 md:order-2">
+        <h2 class="text-2xl md:text-3xl mb-6">Does this sound like you?</h2>
+        <ul class="space-y-3">
+          {suits.map((s) => (
+            <li class="flex gap-3 bg-white rounded-2xl px-5 py-4 border border-blue-100">
+              <span class="text-pf-orange font-bold shrink-0">✓</span>
+              <span class="text-slate-700 leading-relaxed">{s}</span>
+            </li>
+          ))}
+        </ul>
+        <p class="text-slate-600 mt-5">It is more common than anyone lets on, and for most people it genuinely improves with the right plan.</p>
+      </div>
     </div>
   </section>
 
